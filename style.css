@@ -1,0 +1,2042 @@
+*{
+margin: 0;
+padding: 0;
+outline: none;
+box-sizing: border-box;
+}
+.openSans{
+font-family:"Open Sans",sans-serif;
+}
+body{    
+    margin: auto;
+    overscroll-behavior: contain;
+}
+body.no-scroll{
+ overflow: hidden;
+}
+body.unload{
+    height: 100vh;
+    width: 100%;
+}
+/* OVERALL ELEMENT CSS*/
+/* 1. CENTER THE BOX */
+.HandlerCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 110;
+}
+/* 2. FLEX THE BOX */
+.HandlerFlex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 110;
+}
+/* 3. FLEX AND CENTER THE BOX */
+.HandlerCenterFlex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 110;
+}
+/* 4. CLOSING BUTTON */
+.CloseBTN{
+    background: red !important;
+}
+/* 5. BUTTON HANDLER UNDER THE FORM*/
+.BTNHandler{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8px;
+    gap: 6px;
+}
+/* 6. Element W/ DIFFERENT FONTS*/
+.F16PX button, .F16PX p, .F16PX label, .F16PX input{
+    font-size: clamp(1rem, 0.8846rem + 0.4615vw, 1.75rem);
+}
+.F18PX button, .F18PX p, .F18PX label, .F18PX input{
+    font-size: clamp(1.125rem, 1.0096rem + 0.4615vw, 1.875rem);
+}
+/* 7. ELEMENT W/ DIFFERENT PADDINGS*/
+.P6PX button, .P6PX p, .P6PX label, .P6PX input{
+    padding: 6px;
+}
+.P8PX button, .P8PX p, .P8PX label, .P8PX input{
+    padding: 8px;
+}
+/* 8. NORMAL STYLE FOR BUTTONS */
+.BTNHandler button{
+    border: none;
+    background: blue;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+}
+/* 9. BUTTONS W/ DIFFERENT B-RADIUS */
+.B6PX button{
+    border-radius: 6px;
+}
+.B8PX button{
+    border-radius: 8px;
+}
+/* 10. DIFFERENT WIDTHS*/
+.W100{
+    width: 100% !important;
+}
+.W90{
+    width: 90% !important;
+}
+.W80{
+    width: 80% !important;
+}
+.W70{
+    width: 70% !important;
+}
+.W60{
+    width: 60% !important;
+}
+/* 11. DIFFERENT TYPES OF BUTTON */
+.ATypeBTN button{
+    font-weight: bold;
+    color: white;
+    background: blue;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+}
+/* 12. DIFFERENT TYPES OF INPUT */
+.ATypeInput{
+    border: 2px solid blue;
+    background: transparent;
+    font-weight: bold;
+    color: blue;
+}
+.BTypeInput{
+    border: 2px solid blue;
+    font-weight: bold;
+    color: blue;
+}
+/* 13. FORM DIVIDER */
+.ATypeForm div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+}
+/* ROOTS */
+:root{
+/* VERSION 1: FORMULA (2.22) */
+    --forHalf: clamp(0.03125rem, 0.0254rem + 0.0235vw, 0.069375rem);
+    --for1: clamp(0.0625rem, 0.0508rem + 0.0469vw, 0.13875rem);
+    --for2: clamp(0.125rem, 0.1015rem + 0.0938vw, 0.2775rem);
+    --for3: clamp(0.1875rem, 0.1523rem + 0.1408vw, 0.41625rem);
+    --for4: clamp(0.25rem, 0.2031rem + 0.1877vw, 0.555rem);
+    --for5: clamp(0.3125rem, 0.2538rem + 0.2346vw, 0.69375rem);
+    --for6: clamp(0.375rem, 0.3046rem + 0.2815vw, 0.8325rem);
+    --for7: clamp(0.4375rem, 0.3554rem + 0.3285vw, 0.97125rem);
+    --for8: clamp(0.5rem, 0.4062rem + 0.3754vw, 1.11rem);
+    --for9: clamp(0.5625rem, 0.4569rem + 0.4223vw, 1.24875rem);
+    --for10: clamp(0.625rem, 0.5075rem + 0.47vw, 1.38875rem);
+    --for11: clamp(0.6875rem, 0.5585rem + 0.5162vw, 1.52625rem);
+    --for12: clamp(0.75rem, 0.6092rem + 0.5631vw, 1.665rem);
+    --for13: clamp(0.8125rem, 0.66rem + 0.61vw, 1.80375rem);
+    --for14: clamp(0.875rem, 0.7108rem + 0.6569vw, 1.9425rem);
+    --for15: clamp(0.9375rem, 0.7612rem + 0.705vw, 2.083125rem);
+    --for16: clamp(1rem, 0.8123rem + 0.7508vw, 2.22rem);
+    --for17: clamp(1.0625rem, 0.8631rem + 0.7977vw, 2.35875rem);
+    --for18: clamp(1.125rem, 0.9135rem + 0.8462vw, 2.5rem);
+    --for19: clamp(1.1875rem, 0.9646rem + 0.8915vw, 2.63625rem);
+    --for20: clamp(1.25rem, 1.0154rem + 0.9385vw, 2.775rem);
+}
+.ATypeForm div p,
+.ATypeForm div label{
+    width: 100%;
+    text-align: left;
+    color: blue;
+    font-size: clamp(1rem, 0.8846rem + 0.4615vw, 1.75rem);
+}
+.ATypeForm div input{
+    border: 2px solid blue;
+    font-size: clamp(1rem, 0.8846rem + 0.4615vw, 1.75rem);
+    padding: 6px;
+    color: blue;
+    font-weight: bold;
+    border-radius: 6px;
+    width: 100%;
+}
+.ATypeForm h2{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.ATypeForm .BTNHandler{
+    margin-top: 12px;
+}
+/* 14. BOX SHADOWS */
+.BS-2_5px-black{
+    box-shadow: 2px 2px 5px black;
+}
+.BS-2_5px-blue{
+    box-shadow: 2px 2px 5px blue;
+}
+.BS-2_5px-red{
+    box-shadow: 2px 2px 5px red;
+}
+BS-4_10px-black{
+    box-shadow: 4px 4px 10px black;
+}
+.BS-4_10px-blue{
+    box-shadow: 4px 4px 10px blue;
+}
+.BS-4_10px-red{
+    box-shadow: 4px 4px 10px red;
+}
+/* 15. FLEX DIRECTIONS */
+.FD_Row{
+    flex-direction: row !important;
+    gap: 6px !important;
+}
+.FD_Col{
+    flex-direction: column !important;
+    gap: 6px;
+}
+/* NOTHING FOLLOWS */
+
+.HiddenForms{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 21;
+}
+.HiddenForms._skip{
+    pointer-events: none;
+}
+#TransBG{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: blue;
+    opacity: 0.3;
+    z-index: 105;
+    display: none;
+}
+.BGBelowNav, .BGAboveNav{
+    z-index: 98;
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+}
+.BGAboveNav{
+    z-index: 201;
+}
+.WebLogs{
+    position: absolute;
+    max-height: 200px;
+    max-width: 300px;
+    padding: 8px;
+    border-radius: 8px;
+    background: white;
+    z-index: 201;
+    bottom: 0;
+    overflow: scroll;    
+}
+.SelectAction{
+    position: absolute;
+    z-index: 201;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    height: 36px; 
+}    
+.SelectAction select{
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: blue;
+    width: 100%;
+    border: none;
+} 
+.ActionBtn, .SelectAction div:nth-child(1){
+    width: 18%;
+    height: 100%;
+}
+.SelectAction div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+}
+.SelectAction div:nth-child(1) ion-icon{
+    font-size: 24px;
+    color: white;
+} 
+.ActionBtn button{
+    height: 100%;
+    width: 100%;
+    background: blue;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    color: white;
+}  
+.WebLogs .Head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.ListLogs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+}
+.ListLogs nav{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    font-size: 10px;
+}
+.ListLogs nav p:nth-child(1){
+    width: 30%;  
+    min-width: 60px;
+}
+.ListLogs nav p:nth-child(2){
+    width: 100%;   
+     
+}
+
+.BodyHandler{
+    position: absolute;
+    height: 100dvh;
+    width: 100%;
+    left: 0;
+    overflow: scroll;
+    top: -100vh;
+    overflow: hidden;
+}
+.Home{
+    top: 0;    
+}
+pp{
+    font-size: 20px;
+    padding: 6px;
+    font-weight: bold;
+}
+.NoWifiHandler{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 110;
+}    
+.Outest, .Outer, .Inner, .Innest{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid transparent;
+    margin: auto;
+    
+}
+.Outer{
+    height: 120px;
+    width: 120px;
+}
+.Inner{
+    height: 90px;
+    width: 90px;
+}
+.Innest{
+    height: 60px;
+    width: 60px;
+}
+.WoInternet{
+    border-top-color: grey !important;
+}
+.NoInt{
+    background: white;
+    border-radius: 8px;
+    width: 60%;
+    margin: auto;
+    margin-top: -70px;
+}
+.NoInt p{
+    padding: 10px;
+    font-size: clamp(1.125rem, 1.0096rem + 0.4615vw, 1.875rem);
+    color: grey;
+    font-weight: bold;
+}
+.NoWifiHandler p{
+    margin: auto;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    font-size: clamp(1rem, 0.8846rem + 0.4615vw, 1.75rem);
+    text-decoration: underline;
+    
+}
+.NoWifiHandler h3, .NoWifiHandler h4{
+    margin-top: -60px;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(1rem, 0.8846rem + 0.4615vw, 1.75rem);
+}
+.NoWifiHandler h4{
+    margin-top: 0;    
+}
+.MaintenancePage{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    flex-direction: column;
+}
+.Unclickable{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+/* Navigation v2  22 Feb 2025 */
+/* RESPONSIVE YES */
+.navHandler{
+    width: 100%;
+    height: 100px;
+    background: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+}
+.upperNavHandler, .mainNav{
+    width: 100%;
+    height: 100%;
+}
+.upperNavHandler{   
+    position: relative;
+}
+.upperNav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+}
+.LogoHandler{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(5px);
+}
+.WebLogo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--for18);
+    font-weight: bold;
+    overflow: hidden;
+}
+.WebLogo img{
+    height: 100%;
+    width: 100%;
+}
+.LogoHandler p{
+    color: blue;
+    font-weight: bold;
+    font-size: 22px;
+    transform: translateX(7px);
+}
+.Nav0{
+    display: none !important;
+}
+.Nav6{
+    transform: translateX(-8px);
+    display: flex !important;
+}
+.Nav6 button{
+    background: blue;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+.formAdmin{
+    display: none;
+}
+.DebugInput{
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    height: 400px;
+    overflow: scroll;
+    box-shadow: 3px 3px 8px black;
+    border-radius: 7px;
+    padding: 8px;
+    padding-top: 0;
+}
+.DebugInput .Head{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-right: 12px; 
+    padding-left: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 2;    
+    background: white;
+}
+.DebugInput .Head ion-icon{
+    font-size: 22px;
+    color: red;
+}
+.DInav{
+    z-index: 1;
+    top: 30px;
+    background: white;
+    padding: 8px 4px 12px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: sticky;
+    gap: 5px;
+}
+.DInav button{
+    padding: 4px;
+    border-radius: 12px;
+    background: #eaffff;
+    font-size: 14px;
+    border: 1px solid grey;
+}
+.DInav button.Active{
+    background: white;
+    color: blue;
+    border: 1px solid blue;
+    font-weight: bold;
+}
+.DIbody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
+.DebugInput div div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;  
+      
+}
+.DebugInput p{
+    font-size: 16px;
+    color: blue;
+    font-weight: bold;
+}
+.DebugInput input{
+    width: 100%;
+    border: 2px solid blue;
+    padding: 6px;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.SearchHandler{
+    position: absolute;
+    top: 8px;
+    left: auto;
+    right: 80px;   
+    z-index: 100;
+    width: 200px;
+    /* display: none; */
+/* REMOVE @3/22/25 */        
+}
+.SearchBar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 0.4s linear;
+}
+.SearchBar input{
+    border: 2px solid blue;
+    font-size: 16px;
+    font-weight: bold;
+    background: transparent;
+    border-radius: 8px;
+    width: 100px;
+    color: blue;
+    padding: 4px;
+    cursor: default;
+}
+.SearchBar ion-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: blue;
+    font-size: 22px;
+}
+
+.mainNav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7.5px;
+    gap: 5px;
+    height: 90%;
+}
+.mainNav div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.mainNav div div:first-child{
+    position: absolute;
+    height: 40px;
+    overflow: hidden;
+    color: blue;
+    font-weight: bold;
+    font-size: 18px;
+}
+.mainNav div div:first-child p{
+    transform: translateY(-30px);
+    transition: transform 0.4s linear;
+}
+.mainNav div div:last-child{
+    color: blue;
+    font-size: 33px;
+    border-radius: 50%;
+    transition: transform 0.4s linear;
+}
+.mainNav div.ActiveNav div:first-child p{
+    transform: translateY(-10px);
+}
+.mainNav div.ActiveNav div:last-child{
+    background: blue;
+    color: white;
+    border-radius: 50%;
+    width: 66px;
+    height: 66px;
+    transform: translateY(33px);
+    font-size: 42px;
+}
+
+@media(min-width: 601px) and (max-width: 800px){ 
+.mainNav{
+    margin-bottom: 8px;
+}
+.mainNav div{
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 3px;
+    border-radius: 8px;
+}
+.mainNav div div:first-child{
+    width: 100%;
+    position: static;
+    width: 100%;
+    justify-content: flex-end !important;
+    overflow: visible;
+}
+.mainNav div div:first-child p{
+    transform: translate(-15px,0);
+}
+.mainNav div div:last-child{
+    width: 90%;
+    transform: scale(0);
+} 
+.mainNav div.ActiveNav{
+    background: blue;
+    color: white;
+}
+.mainNav div.ActiveNav div:first-child p{
+    transform: translate(0, 0);
+    color: white;
+}
+.mainNav div.ActiveNav div:last-child{
+    background: none;
+    border-radius: 0;
+    width: 80%;
+    height: auto;
+    transform: translateY(0);
+    font-size: 36px;
+    transform: scale(1);
+}
+.SearchHandler{
+    width: 300px;
+}
+.SearchBar input{
+    border: 2px solid blue;
+    background: white;
+    width: 100%;
+    color: blue;
+}
+}
+@media(min-width: 801px){
+.Nav0{
+    display: flex !important;
+}
+.Nav6{
+    display: none !important;
+}
+}
+
+@media(min-width: 801px) and (max-width: 1200px){
+.navHandler{
+    height: clamp(4.375rem, 3.1203rem + 2.5063vw, 5rem);
+    flex-direction: row;
+}
+.upperNavHandler, .mainNav{
+    width: 100%;
+    height: 100%;
+}
+.upperNavHandler{   
+    position: relative;
+    width: clamp(25rem, -0.094rem + 50.1253vw, 37.5rem);
+}
+.upperNav{
+    position: static;
+    top: auto;
+    left: 8px;
+    width: auto;
+    height: 100%;
+}
+.LogoHandler{
+    transform: translateX(clamp(0.625rem, -0.1278rem + 1.5038vw, 1.2rem));
+    height: 100%;
+}
+.WebLogo{
+    width: clamp(2.8125rem, 1.5578rem + 2.5063vw, 3.4375rem);
+    height: clamp(2.8125rem, 1.5578rem + 2.5063vw, 3.4375rem);
+}
+.LogoHandler p{
+    color: blue;
+    font-weight: bold;
+    font-size: clamp(1.375rem, 0.6222rem + 1.5038vw, 1.75rem);
+    transform: translateX(clamp(0.4375rem, 0.0611rem + 0.7519vw, 0.625rem));
+}
+.Nav6{
+    transform: translateX(0);
+    
+}
+.Nav6 button{
+    font-size: clamp(1.125rem, 0.6231rem + 1.0025vw, 1.375rem);
+    padding: (0.25rem, -0.2519rem + 1.0025vw, 0.5rem) clamp(0.625rem, 0.1231rem + 1.0025vw, 0.875rem);
+    cursor: pointer;
+}
+.SearchHandler{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+    right: auto;
+    width: clamp(12.5rem, 6.2265rem + 12.5313vw, 15.625rem);
+   
+}
+.SearchBar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 0.4s linear;
+}
+.SearchBar input{
+    border: clamp(0.125rem, -0.0005rem + 0.2506vw, 0.1875rem) solid transparent;
+    font-size: clamp(1rem, 0.4981rem + 1.0025vw, 1.25rem);
+    border-radius: clamp(0.5rem, -0.0019rem + 1.0025vw, 0.75rem);    
+    color: transparent;
+    padding: clamp(0.25rem, -0.1264rem + 0.7519vw, 0.4375rem);
+}
+.SearchBar ion-icon{
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: blue;
+    font-size: clamp(1.75rem, 0.7462rem + 2.005vw, 2.25rem);
+}
+.lastNav{
+    width: clamp(7.5rem, -0.0282rem + 15.0376vw, 11.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainNav{
+    height: 100%;
+}
+.mainNav div div:first-child{
+    font-size: clamp(1.125rem, 0.3722rem + 1.5038vw, 1.5rem);
+    height: clamp(3.75rem, 1.2406rem + 5.0125vw, 5rem);
+    user-select: none;
+}
+.mainNav div div:first-child p{
+    transform: translateY(clamp(-5rem, -1.2406rem + -5.0125vw, -3.75rem));
+    transition: transform 0.4s linear;
+}
+.mainNav div div:last-child{
+    font-size: clamp(2.25rem, 1.1208rem + 2.2556vw, 2.8125rem);
+    cursor: pointer;
+}
+.mainNav div.ActiveNav div:first-child p{
+    transform: translateY(-15px);
+}
+.mainNav div.ActiveNav div:last-child{
+    background: blue;
+    color: white;
+    border-radius: 50%;
+    width: clamp(4.375rem, 3.1203rem + 2.5063vw, 5rem);
+    height: clamp(4.375rem, 3.1203rem + 2.5063vw, 5rem);
+    transform: translateY(clamp(2.1875rem, 1.5602rem + 1.2531vw, 2.5rem));
+    font-size: clamp(3rem, 2.7491rem + 0.5013vw, 3.125rem);
+    cursor: auto;
+}
+}
+@media(min-width: 1001px) and (max-width: 1200px){
+.SearchBar input{
+    border-color: blue;    
+    background: white;    
+    width: clamp(6.25rem, -9.4692rem + 25.1256vw, 9.375rem);
+    color: blue;
+} 
+.SearchHandler{
+    left: clamp(3.75rem, -8.8254rem + 20.1005vw, 6.25rem);
+}   
+}   
+
+@media(min-width: 1201px) and (max-width: 2000px){
+.navHandler{
+    height: clamp(4.375rem, 2.9658rem + 1.8773vw, 5.3125rem);
+    flex-direction: row;
+}
+.upperNavHandler{   
+    position: relative;
+    width: clamp(31.25rem, -34.5119rem + 87.6095vw, 75rem);
+}
+.mainNav{
+    margin: auto;
+    height: 70%;
+}
+.upperNav{
+    position: static;
+    top: auto;
+    left: 8px;
+    width: auto;   
+    height: 100%;
+}
+.LogoHandler{
+    transform: translateX(clamp(0.625rem, -0.1278rem + 1.5038vw, 1.2rem));
+    height: 100%;
+}
+.WebLogo{
+    width: clamp(3.4375rem, 2.7799rem + 0.8761vw, 3.875rem);
+    height: clamp(3.4375rem, 2.7799rem + 0.8761vw, 3.875rem);
+}
+.LogoHandler p{
+    color: blue;
+    font-weight: bold;
+    font-size: clamp(1.75rem, 0.9984rem + 1.0013vw, 2.25rem);
+}
+.Nav6 button{
+    font-size: clamp(1.375rem, 0.8113rem + 0.7509vw, 1.75rem);
+    padding: clamp(0.5rem, 0.1242rem + 0.5006vw, 0.75rem) clamp(1rem, -0.1273rem + 1.5019vw, 1.75rem);
+    cursor: pointer;
+}
+.SearchHandler{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: auto; 
+}
+.SearchBar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 0.4s linear;
+}
+.SearchBar input{
+    border: clamp(0.1875rem, 0.0936rem + 0.1252vw, 0.25rem) solid blue;
+    font-size: clamp(1.375rem, 0.8113rem + 0.7509vw, 1.75rem);
+    border-radius: clamp(0.625rem, 0.0613rem + 0.7509vw, 1rem);  
+    color: blue;
+    padding: clamp(0.5rem, 0.3121rem + 0.2503vw, 0.625rem) clamp(0.375rem, 0.1871rem + 0.2503vw, 0.5rem);
+    width: 100%;
+    background: white;
+}
+.SearchBar ion-icon{
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: blue;
+    font-size: clamp(1.875rem, 1.3113rem + 0.7509vw, 2.25rem);
+    cursor: pointer;
+    z-index: 2;
+}
+.lastNav{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mainNav div{
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: clamp(0.1875rem, -0.0943rem + 0.3755vw, 0.375rem);
+    border-radius: clamp(0.5rem, 0.1242rem + 0.5006vw, 0.75rem);
+}
+.mainNav div div:first-child{
+    width: 100%;
+    position: static;
+    height: 100%;
+    justify-content: flex-end !important;
+    overflow: visible;
+    font-size: clamp(1.375rem, 0.8113rem + 0.7509vw, 1.75rem);
+    cursor: pointer;
+}
+.mainNav div div:first-child p{
+    transform: translate(clamp(-1.5625rem, -2.502rem + 1.2516vw, -0.9375rem),0);
+    cursor: pointer;
+    user-select: none;
+}
+.mainNav div div:last-child{
+    width: 100%;
+    transform: scale(0);
+} 
+.mainNav div.ActiveNav{
+    background: blue;
+    color: white;    
+}
+.mainNav div.ActiveNav div:first-child{
+    cursor: default;
+}
+.mainNav div.ActiveNav div:first-child p{
+    transform: translate(0, 0);
+    color: white;
+    cursor: default;
+}
+.mainNav div.ActiveNav div:last-child{
+    background: none;
+    border-radius: 0;
+    width: 80%;
+    height: auto;
+    transform: translateY(0);
+    font-size: clamp(2.25rem, 1.8742rem + 0.5006vw, 2.5rem);
+    transform: scale(1);
+}
+}
+
+@media(min-width: 1201px) and (max-width: 1800px){
+.SearchHandler{
+    left: clamp(3.125rem, -6.9rem + 13.3556vw, 8.125rem);
+    width: clamp(15.625rem, -8.1845rem + 31.7195vw, 27.5rem);   
+} 
+}
+@media(min-width: 1801px) and (max-width: 2001px){
+.SearchHandler{
+    left: clamp(15rem, 4.9687rem + 10.0251vw, 17.5rem);
+    width: clamp(15rem, -20.1096rem + 35.0877vw, 23.75rem);
+}    
+}
+
+
+@media(min-width: 2001px){
+.navHandler{
+    height: clamp(5.3125rem, 2.8062rem + 2.004vw, 5.9375rem);
+    flex-direction: row;
+}
+.upperNavHandler{   
+    position: relative;
+    width: clamp(75rem, -0.1879rem + 60.1202vw, 93.75rem);
+}
+.mainNav{
+    margin: auto;
+    height: 70%;
+}
+.upperNav{
+    position: static;
+    top: auto;
+    left: 8px;
+    width: auto;
+    height: 100%;
+}
+.LogoHandler{
+    height: 100%;
+    transform: translateX(clamp(1.2rem, -0.2536rem + 1.1623vw, 1.5625rem));
+}
+.WebLogo{
+    width: clamp(3.875rem, 1.87rem + 1.6032vw, 4.375rem);
+    height: clamp(3.875rem, 1.87rem + 1.6032vw, 4.375rem);
+}
+.LogoHandler p{
+    color: blue;
+    font-weight: bold;
+    font-size: clamp(2.25rem, 0.7462rem + 1.2024vw, 2.625rem);
+}
+.Nav6 button{
+    font-size: clamp(1.75rem, 0.7475rem + 0.8016vw, 2rem);
+    padding: clamp(0.75rem, -0.0019rem + 0.6012vw, 0.9375rem) clamp(1.75rem, 0.7475rem + 0.8016vw, 2rem);
+    cursor: pointer;
+}
+.SearchHandler{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: auto; 
+    left: clamp(17.5rem, 7.4749rem + 8.016vw, 20rem);
+    width: clamp(23.75rem, 13.7249rem + 8.016vw, 26.25rem);
+}
+.SearchBar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 0.4s linear;
+}
+.SearchBar input{
+    border: clamp(0.1875rem, 0.0936rem + 0.1252vw, 0.25rem) solid blue;
+    font-size: clamp(1.375rem, 0.8113rem + 0.7509vw, 1.75rem);
+    border-radius: clamp(0.625rem, 0.0613rem + 0.7509vw, 1rem);  
+    color: blue;
+    padding: clamp(0.5rem, 0.3121rem + 0.2503vw, 0.625rem) clamp(0.375rem, 0.1871rem + 0.2503vw, 0.5rem);
+    width: 100%;
+    background: white;
+}
+.SearchBar ion-icon{
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: blue;
+    cursor: pointer;
+    z-index: 2;
+    font-size: clamp(2.25rem, 1.2475rem + 0.8016vw, 2.5rem);
+}
+.lastNav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(15.625rem, 3.0937rem + 10.02vw, 18.75rem);
+}
+.mainNav div{
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: clamp(0.1875rem, -0.0943rem + 0.3755vw, 0.375rem);
+    border-radius: clamp(0.5rem, 0.1242rem + 0.5006vw, 0.75rem);
+}
+.mainNav div div:first-child{
+    width: 100%;
+    position: static;
+    height: 100%;
+    justify-content: flex-end !important;
+    overflow: visible;
+    font-size: clamp(1.75rem, 0.7475rem + 0.8016vw, 2rem);
+    cursor: pointer;
+}
+.mainNav div div:first-child p{
+    transform: translate(clamp(-1.5625rem, -2.502rem + 1.2516vw, -0.9375rem),0);
+    cursor: pointer;
+    user-select: none;
+}
+.mainNav div div:last-child{
+    width: 100%;
+    transform: scale(0);
+} 
+.mainNav div.ActiveNav{
+    background: blue;
+    color: white;
+}
+.mainNav div.ActiveNav div:first-child{
+    cursor: default;
+}
+.mainNav div.ActiveNav div:first-child p{
+    transform: translate(0, 0);
+    color: white;
+    cursor: default;
+}
+.mainNav div.ActiveNav div:last-child{
+    background: none;
+    border-radius: 0;
+    width: 80%;
+    height: auto;
+    transform: translateY(0);
+    font-size: clamp(2.5rem, 0.9962rem + 1.2024vw, 2.875rem);
+    transform: scale(1);
+    cursor: default;
+}
+}
+
+/* ALERT BOX v1 */
+.AlertBox{
+    padding-top: 0 !important;
+    z-index: 202;
+}
+.AlertBox.class{
+    box-shadow: 3px 3px 3px black;
+    border: 1px solid black;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+.HeadIcon{
+    width: 100%;
+    height: 70px;
+    margin-top: -35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.UserIcon{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid blue;
+    overflow: hidden;
+}
+.AlertBoxNoImg p{
+    font-weight: bold;
+    font-size: 16px;
+}
+.AlertBoxImg, .AlertBoxNoImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.AlertBoxImg img{
+    height: 100%;
+    width: 100%;
+}
+.InfoWarn{
+    padding-top: 10px;
+}
+.InfoWarn p{ 
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: blue;
+    font-weight: bold;
+}
+.OtherNav{
+    padding: 8px 0;
+}
+.SaveLog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+.SaveLog label{
+    width: 100%;
+    color: blue;
+    font-size: var(--for16);
+}
+.SaveLog input{
+    width: calc(var(--for10)*3);
+}
+
+/* Fetching Loader */
+.FetchingLoader, .FetchingHandler{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.FetchingLoader{
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    pointer-events: none;
+    flex-direction: column;
+    gap: 20px;
+    display: none;
+    z-index: 101;
+}
+.FetchingHandler{
+    position: relative;
+    height: 30px;
+    width: 90%;
+    box-shadow: 1px 1px 3px grey;
+    background: rgba(240, 240, 240, 0.5);
+    color: blue;
+}
+.FetchingLoader button{
+    background: none;
+    border: none;
+    color: blue;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+}
+.FetchingLine{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 60%;
+    background: rgba(20,250,250,1);
+    z-index: -1;
+}
+.SubmitLoader{
+    position: relative;
+    height: 30px;
+    width: 100%;
+    box-shadow: 1px 1px 3px grey;
+    background: rgba(240, 240, 240, 0.5);
+    color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.SubmitLoader h4{
+    width: 100%;
+    text-align: center;
+    background: transparent;
+}
+.SubmitLine{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(20,250,250,1);
+    z-index: -1;
+    margin-top: 0 !important;
+}
+/* LOADER V2 START */
+.ThisLoader{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 100%; 
+    gap: 4px;
+    position: relative;
+    z-index: 21;
+}
+.Loaderv2{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 1px 1px 2px grey;  
+    width: 100%;
+    height: 32px;
+}
+.ThisLoader.Centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);        
+}
+.LoaderStat{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);         
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.LoaderLine{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;    
+}
+.LoaderText{
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1;
+}
+.LoaderExit{
+    height: 32px;
+    width: 36px;
+    background: red;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 2px grey;  
+}
+.LoaderFail{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 32px;
+    position: absolute;
+    top: 0;    
+    z-index: -1;
+}
+.failbtn1, .failbtn2, .failbtn3{
+    display: flex;
+    color: white;
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+    background: blue;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.failbtn1 p, .failbtn2 p, .failbtn3 p{    
+    font-size: 14px;
+    color: white;
+    font-weight: bold;    
+}
+.LoaderExit ion-icon{
+    --ionicon-stroke-width: 72px;
+    color: white;
+}
+.LoaderFail ion-icon{
+    --ionicon-stroke-width: 72px;
+}
+/* LOADER V2 END */
+
+
+/* LOADERS PARENT OR HANDLER */
+.Loader19{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 8px;
+}
+
+/* FOR ADMIN FEATURES BEGIN */
+.ClampGeneratorv2, .visitorsData, .checkProp, .propCheckerBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);      
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px #6af5ff;
+    background: white;
+    width: 90%;
+    z-index: 21;
+}
+.propCheckerBox{
+    top: 20%;
+    transform: translate(-20%, -50%) scale(0.5);   
+    max-width: 400px; 
+}
+/* CLAMP GENERATOR V2 (START) 22 Oct 2025 */
+/* V2 22 Oct 2025 - Support all value in css and improved easy copy-paste method */
+/* CLAMP GENERATOR V3 (START) 21 Dec 2025 */
+/* V3 21 Dec 2025 - Simple and Easy to use. Hassle-free and no bugs. Can handle multiple results and copy faster */
+.clampGeneratorV3{
+    background: white;
+    width: 320px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    z-index: 202;
+}
+.clampGeneratorV3 h3{
+    font-size: 22px;
+    color: blue;
+    padding: 8px;
+    padding-top: 0;
+    padding-left: 0;
+}
+.clampGeneratorV3 ion-icon:not(.delete ion-icon, .close ion-icon), .clampGeneratorV3 .paste{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+    color: red;
+    --ionicon-stroke-width: 72px;
+}
+.clampGeneratorV3 .paste{
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    resize: none;
+    right: 50px;
+}
+.Layout{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.Layout div{
+    height: 55px;
+    width: 55px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Layout div h1{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+}
+.Layout div nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.Layout div input{
+    font-size: 10px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+.Layout div.Active{
+    background: yellow;
+}
+.Layout div.Active h1{
+    color: blue;
+}
+.Layout div.Active input{
+    color: blue;
+}
+/* EDIT LAYOUT */
+.EditLayout{
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    height: 30px;
+    margin-top: 8px;
+}
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    background: red;
+}
+.close ion-icon{
+    font-size: 20px;
+    --ionicon-stroke-width: 48px;
+    color: white;
+}
+.minVal, .maxVal{
+    width: 200px;
+    height: 100%;
+}
+.minVal input, .maxVal input{
+    width: 100%;
+    height: 100%;
+    border: 2px solid blue;
+    text-align: center;
+    font-weight: bold;
+    color: blue;
+    font-size: 15px;
+}
+.EditLayout button{
+    height: 100%;
+    background: blue;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    width: 80%;
+}
+/* GIVEN PROPS */
+.GivenProp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+.GivenProp div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;    
+}
+.GivenProp div p{
+    padding: 6px;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff555f;
+    border: 1.5px solid #ff555f;
+}
+.GivenProp div p.disabled{
+    background: grey;
+    color: white;
+    border-color: gray;
+}
+/* RESULTS */
+.Results{
+    width: 100%;
+    height: 28px;
+    margin-top: 8px;
+    border-radius: 4px;
+    display: none;
+    overflow: scroll;
+}
+.handling{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    width: 100%;  
+    gap: 4px;
+}
+.handling p{
+    font-size: 14px;
+    font-weight: bold;
+    background: white;
+    color: blue;
+    border-radius: 4px;
+    padding: 4px;
+    text-align: center;
+    border: 1.5px solid blue;
+    width: 80px;
+}
+.handling p.Active{
+    background: blue;
+    color: white;
+}
+/* ResultVal */
+.ResultVal{
+    width: 100%;
+    overflow: scroll;
+    height: 140px;
+}
+.ResultVal textarea{
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid blue;
+    resize: none;
+    padding: 2px;
+    color: blue;
+    font-size: 14px;
+    text-transform: lowercase;
+    display: none;
+    margin-top: 8px;
+}
+/* RESULT PROPERTY */
+.ResProp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 30px;
+    margin-top: 8px;
+}
+.delete{
+    height: 30px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+}
+.delete ion-icon{
+    color: white;
+    font-size: 18px;
+    --ionicon-stroke-width: 48px;
+}
+.PropName{
+    background: blue;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.PropName p{
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+.lowerVal, .upperVal{
+    width: 70px;
+    height: 30px;
+}
+.lowerVal input, .upperVal input{
+    border: 2px solid blue;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: blue;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* FOOT BTN */
+.FootBTN{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+}
+.FootBTN button{
+    width: 100%;
+    background: blue;
+    padding: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+.GivenProp select{
+    position: absolute;
+    height: 30px;
+    opacity: 0;
+}
+.mar{
+    left: 50%;
+    transform: translateX(-65%);
+    width: 60px;
+}
+.pad{
+    right: 70px;
+    width: 63px;
+}
+.bor{
+    right: 10px;
+    width: 54px;
+}
+/* CLAMP GENERATOR V2 (END) 22 Oct 2025 */
+/* V2 22 Oct 2025 */
+/* CLAMP GENERATOR V3 (END) 21 Dec 2025 */
+/* V3 21 Dec 2025 */
+
+
+/* VISITOR'S DATA */
+.visitorsData{
+    padding-bottom: 22px;
+}
+.visitorsData .ref{
+    position: absolute;
+    top: 5px;
+    right: 45px;
+    font-size: 14px;
+    padding: 6px;
+    background: blue;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+.visitorsData ion-icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: red;
+    font-size: 28px;
+}
+.Row-3-May16{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    padding: 8px 0;
+    position: relative;
+}
+.Row-3-May16 h6{
+    position: absolute;
+    left: 1%;
+    bottom: -12px;
+    font-size: 16px;
+    font-weight: normal;
+    color: blue;
+    text-decoration: underline;
+}
+.Row-3-May16 div{
+    width: 100%;
+}
+.Row-3-May16 div h3{
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.Row-3-May16 div p{
+    width: 100%;
+    text-align: center;
+    padding: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: blue;
+}
+.OthersVisitData{
+    margin-top: 18px;
+}
+.TVisitors{
+    background: blue;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 16px;
+    margin-top: 8px;
+}
+.TVisitors h3{
+    color: white
+}
+.DebugInput, .clampGenerator, .visitorsData{
+    z-index: 201;
+}
+
+/* CHECK PROPERTIES MANUAL */
+.ForElems{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.EachElem{
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+    border-radius: 7px;
+    gap: 2px;
+}
+.EachElem p{
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+.EachElem ion-icon{
+    color: grey;
+    font-size: 18px;
+}
+.ElemProp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+}
+.ElemProp *:not(nav){
+    padding: 8px 4px;
+    width: 100%;
+    font-size: 16px;
+    color: blue;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px #80ff98;
+    border-radius: 6px;
+    border: 1.5px solid blue;
+    background: transparent;
+}
+.ElemProp nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+.ElemProp button{
+    background: blue;    
+    color: white;
+}
+.SummaryElemProp{
+    max-height: 250px;
+    overflow: scroll;
+    width: 100%;
+    padding: 8px;
+    display: none;
+}
+/* CHECK PROPERTIES AUTOMATIC */
+.propCheckerBox{
+    overflow: scroll;
+    max-height: 440px;
+    padding: 8px;
+    padding-top: 0;
+}
+.propCheckerBox .tt{
+    position: sticky;
+    top: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    padding: 8px 0;  
+}
+.propCheckerBox ion-icon{
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    color: red;
+}
+.propCheckerBox ion-icon.yy{
+    color: blue;
+    --ionicon-stroke-width: 52px;
+}
+
+/* FOR ADMIN FEATURES END */
+/* UIBANNER FOR NOTIFICATIONS */
+.UIBanner, .UIBanner2{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    border-radius: 4px;
+    background: blue;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    width: 80%;
+    transition: 0.4s linear;
+}
+.UIBanner.Active, .UIBanner2.Active{
+    bottom: 12px;
+    display: flex;
+    z-index: 210;
+}
+.UIBanner.Active2, .UIBanner2.Active2{
+    bottom: 65px;
+    display: flex;
+    z-index: 211;
+}
+.UIBanner ion-icon, .UIBanner2 ion-icon{
+    font-size: 22px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+}
+.UIBanner .notifLine, .UIBanner2 .notifLine{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: white;
+    border-radius: 10px;
+    animation: loadUIBanner 4s linear;
+}
+.UIBanner .notifLine2{
+    animation: loadUIBanner2 4s linear;
+}
+@keyframes loadUIBanner {
+    to{
+        width: 100%;
+    }
+}
+@keyframes loadUIBanner2 {
+    to{
+        width: 100%;
+    }
+}
+.UIBanner h6, .UIBanner2 h6{
+    position: absolute;
+    color: yellow;
+    left: 10px;
+    font-size: 20px;
+}
+.InsertDatabase{
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background: blue;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 50%;
+    z-index: 201;
+}
+.InsertDatabase ion-icon{
+    font-size: 45px;
+    color: white;
+}
+.Loaders{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+.BGPopDown{
+ position: fixed;
+ z-index: 202;
+ width: 100%;
+ height: 100vh;
+ top: 0;
+ left: 0;
+ background: transparent;
+ pointer-events: none;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: .3s;
+}
+
+/* POP UP BOX */
+.PopUpBox{
+    background: white;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px black;
+    width: 350px;
+    position: relative;
+    padding: 8px;
+    z-index: 203;
+} 
+.HeadCircle{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: blue;
+    top: -42.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+} 
+.HeadCircle img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.PopUpText p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+}
+.PopUpBoxBTN{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    margin-top: 8px;
+}
+.PopUpBoxBTN button{
+    padding: 6px;
+    background: blue;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    width: 100%;
+}
+.PopUpStat{
+    padding: 6px;
+}
+.PopUpStat label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+    font-size: 12px;
+    color: blue;
+}
+.PopUpStat label p{
+    text-decoration: underline;
+}
+
+/* END */
